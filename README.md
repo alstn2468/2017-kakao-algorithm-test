@@ -31,4 +31,4 @@
 - 파일명 정렬<br/>
 [코드](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/3nd/4_파일명정렬.py)
 - n진수 게임<br/>
-[코드](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/3nd/5_%EC%B6%94%EC%84%9D%ED%8A%B8%EB%9E%98%ED%94%BD.py)
+[코드](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/3nd/5_n진수게임.py)

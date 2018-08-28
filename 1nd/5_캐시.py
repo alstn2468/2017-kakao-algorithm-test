@@ -31,34 +31,55 @@
 # 2	        [Jeju, Pangyo, NewYork, newyork]	                                                        16
 # 0	        [Jeju, Pangyo, Seoul, NewYork, LA]	                                                        25
 
-def LRU(cacheSize, cache, newinput, idx) :
-    if len(cache) == cacheSize :
-        cache[idx] = newinput
+def solution(cacheSize, cities) :
+    result, count, used = 0, 0, []
 
-    else :
-        cache.append(newinput)
+    for index, city in enumerate(cities) :
+        if cacheSize == 0 :
+            result += 5
 
-    return cache
+        elif (len(used) < cacheSize) and (city.lower() not in used) :
+            used.append(city.lower())
+            result += 5
 
-def solution(cacheSize, cities):
-    if cacheSize == 0 :
-        return len(cities) * 5
+        elif city.lower() not in used :
+            del used[0]
+            used.append(city.lower())
+            result += 5
 
-    else :
-        result_time = 0
-        cache = []
+        elif city.lower() in used :
+            used.remove(city.lower())
+            used.append(city.lower())
+            result += 1
 
-        for i in range(len(cities)) :
-            cities[i] = cities[i].lower()
+    return result
 
-        for i in range(len(cities)) :
-            idx = i % cacheSize
+if __name__ == '__main__' :
 
-            if cities[i] in cache :
-                result_time += 1
+    cacheSize = [3, 3, 2, 5, 2, 0]
+    cities = [["Jeju", "Pangyo", "Seoul",
+              "NewYork", "LA", "Jeju",
+               "Pangyo", "Seoul", "NewYork", "LA"],
 
-            else :
-                cache = LRU(cacheSize, cache, cities[i], idx)
-                result_time += 5
+              ["Jeju", "Pangyo", "Seoul",
+               "Jeju", "Pangyo", "Seoul",
+               "Jeju", "Pangyo", "Seoul"],
 
-        return result_time
+              ["Jeju", "Pangyo", "Seoul",
+               "NewYork", "LA", "SanFrancisco",
+               "Seoul", "Rome", "Paris",
+               "Jeju", "NewYork", "Rome"],
+
+              ["Jeju", "Pangyo", "Seoul",
+               "NewYork", "LA", "SanFrancisco",
+               "Seoul", "Rome", "Paris",
+               "Jeju", "NewYork", "Rome"],
+
+              ["Jeju", "Pangyo",
+               "NewYork", "newyork"],
+
+              ["Jeju", "Pangyo", "Seoul",
+               "NewYork", "LA"]]
+
+    for i in range(len(cacheSize)) :
+        print(solution(cacheSize[i], cities[i]))

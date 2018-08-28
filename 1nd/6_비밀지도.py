@@ -32,3 +32,23 @@
 # arr1	    [46, 33, 33 ,22, 31, 50]
 # arr2    	[27 ,56, 19, 14, 14, 10]
 # 출력	["######", "### #", "## ##", " #### ", " #####", "### # "]
+
+def sol(n, arr1, arr2) :
+    replace_dic = {'1' : '#', '0' : ' '}
+    result = []
+
+    for i in range(n) :
+        row = bin(arr1[i] | arr2[i])
+
+        for key, value in replace_dic.items() :
+            row = row.replace(key, value)
+
+        result.append(row[2:])
+
+    return result
+
+n = 5
+arr1 = [9, 20 ,28, 18, 11]
+arr2 = [30, 1, 21, 17, 28]
+
+print(sol(n, arr1, arr2))

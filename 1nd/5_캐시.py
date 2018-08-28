@@ -30,3 +30,35 @@
 # 5	        [Jeju, Pangyo, Seoul, NewYork, LA, SanFrancisco, Seoul, Rome, Paris, Jeju, NewYork, Rome]	52
 # 2	        [Jeju, Pangyo, NewYork, newyork]	                                                        16
 # 0	        [Jeju, Pangyo, Seoul, NewYork, LA]	                                                        25
+
+def LRU(cacheSize, cache, newinput, idx) :
+    if len(cache) == cacheSize :
+        cache[idx] = newinput
+
+    else :
+        cache.append(newinput)
+
+    return cache
+
+def solution(cacheSize, cities):
+    if cacheSize == 0 :
+        return len(cities) * 5
+
+    else :
+        result_time = 0
+        cache = []
+
+        for i in range(len(cities)) :
+            cities[i] = cities[i].lower()
+
+        for i in range(len(cities)) :
+            idx = i % cacheSize
+
+            if cities[i] in cache :
+                result_time += 1
+
+            else :
+                cache = LRU(cacheSize, cache, cities[i], idx)
+                result_time += 5
+
+        return result_time

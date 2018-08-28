@@ -53,8 +53,12 @@ def solution(n, arr1, arr2) :
 
     return result
 
-n = 5
-arr1 = [9, 20 ,28, 18, 11]
-arr2 = [30, 1, 21, 17, 28]
+if __name__ == '__main__' :
+    n = [5, 6]
+    arr1 = [[9, 20 ,28, 18, 11],
+            [46, 33, 33 ,22, 31, 50],]
+    arr2 = [[30, 1, 21, 17, 28],
+            [27 ,56, 19, 14, 14, 10]]
 
-print(sol(n, arr1, arr2))
+    for i in range(len(n)) :
+        print(solution(n[i], arr1[i], arr2[i]))

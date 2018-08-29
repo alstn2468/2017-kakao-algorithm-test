@@ -54,9 +54,9 @@ def solution(dartResult):
             shot[i] = shot[i][:-1]
 
             if i :
-                opt[i-1] *= 2
+                opt[i - 1] *= 2
 
-    point = [(int(s[:-1]) ** '0SDT'.find(s[-1]) * o) for s, o in zip(shot, opt)]
+    point = [int(s[:-1]) ** '0SDT'.find(s[-1]) * o for s, o in zip(shot, opt)]
 
     return sum(point)
 

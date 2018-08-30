@@ -38,3 +38,120 @@
 #                    23:59, 23:59, 23:59, 23:59, 23:59,
 #                    23:59, 23:59, 23:59, 23:59,
 #                    23:59, 23:59]
+
+def solution(n, t, m, timetable) :
+    answer = ''
+
+    total_min = (n - 1) * t
+    last_hour = 9 + total_min // 60
+    last_min = total_min % 60
+
+    last_crew_index = 0
+    shuttle_time_table = ['09:00']
+
+    for i in range(1, n) :
+        shuttle_time_table.append(get_time_after_x(i * t))
+
+    timetable.sort()
+
+    for i in range(0, n) :
+        for j in range(0, m) :
+            if len(timetable) <= last_crew_index :
+                last_crew_index = -1
+                break
+
+            shuttle_time = shuttle_time_table[i]
+            crew_time = timetable[last_crew_index]
+
+            if get_hour(crew_time) < get_hour(shuttle_time) :
+                last_crew_index += 1
+
+            elif get_hour(crew_time) == get_hour(shuttle_time) :
+                if get_min(crew_time) <= get_min(shuttle_time) :
+                    last_crew_index +=1
+
+                else :
+                    break
+
+            elif get_hour(crew_time) > get_hour(shuttle_time) :
+                break
+
+    if last_crew_index <= 0 or last_crew_index > len(timetable) :
+        answer = '{0:02d}'.format(last_hour) + ':' + '{0:02d}'.format(last_min)
+
+    else :
+        last_shuttle_temp = timetable[last_crew_index - 1]
+
+        if get_min(last_shuttle_temp) > 0 :
+            answer = '{0:02d}'.format(get_hour(last_shuttle_temp))
+            answer += ':'
+            answer += '{0:02d}'.format(get_min(last_shuttle_temp) - 1)
+
+        if get_min(last_shuttle_temp) == 0 :
+            answer = '{0:02d}'.format(get_hour(last_shuttle_temp) - 1)
+            answer += ':'
+            answer += '{0:02d}'.format(59)
+
+    return answer
+
+def get_time_after_x(x) :
+    if x <= -60 :
+        h = '{0:02d}'.format(8 + (x // 60))
+        m = '{0:02d}'.format(60 - (x % 60))
+
+        return h + ':' + m
+
+    elif -60 < x < 0 :
+        h = '{0:02d}'.format(8)
+        m = '{0:02d}'.format(60 + x)
+
+        return h + ':' + m
+
+    elif 0 <= x < 60 :
+        h = '{0:02d}'.format(9)
+        m = '{0:02d}'.format(x)
+
+        return h + ':' + m
+
+    elif 60 <= x :
+        h = '{0:02d}'.format(9 + (x // 60))
+        m = '{0:02d}'.format(x % 60)
+
+        return h + ':' + m
+
+def get_hour(time) :
+    return int(time.split(':')[0])
+
+def get_min(time) :
+    return int(time.split(':')[1])
+
+if __name__ == '__main__' :
+    n = [1,
+         2,
+         2,
+         1,
+         1,
+         10]
+    t = [1,
+         10,
+         1,
+         1,
+         1,
+         60]
+    m = [5,
+         2,
+         2,
+         5,
+         1,
+         45]
+    timetable = [['08:00', '08:01', '08:02', '08:03'],
+                 ['09:10', '09:09', '08:00'],
+                 ['09:00', '09:00', '09:00', '09:00'],
+                 ['00:01', '00:01', '00:01', '00:01', '00:01'],
+                 ['23:59'],
+                 ['23:59','23:59', '23:59', '23:59', '23:59',
+                  '23:59', '23:59', '23:59', '23:59', '23:59',
+                  '23:59', '23:59', '23:59', '23:59', '23:59', '23:59']]
+
+    for i in range(len(n)) :
+        print(solution(n[i], t[i], m[i], timetable[i]))

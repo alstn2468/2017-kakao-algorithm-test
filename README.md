@@ -25,9 +25,9 @@
 - 방금그곡<br/>
 [[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/3nd/1_방금그곡.py) (000.0 / 100.0)
 - 압축<br/>
-[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/3nd/2_압축.py)
-- 자동완성<br/> (000.0 / 100.0)
-[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/3nd/3_자동완성.py)
+[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/3nd/2_압축.py) (000.0 / 100.0)
+- 자동완성<br/>
+[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/3nd/3_자동완성.py) (000.0 / 100.0)
 - 파일명 정렬<br/>
 [[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/3nd/4_파일명정렬.py) (000.0 / 100.0)
 - n진수 게임<br/>

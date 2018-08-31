@@ -11,15 +11,15 @@
 - 뉴스 클러스터링<br/>
 [[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/2_뉴스클러스터링.py)
 - 셔틀버스<br/>
-[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/3_셔틀버스.py)
+[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/3_셔틀버스.py) (95.8 / 100.0)
 - 프렌즈4블록<br/>
 [[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/4_프렌즈4블록.py)
 - 캐시<br/>
-[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/5_캐시.py)
+[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/5_캐시.py) (100.0 / 100.0)
 - 비밀지도<br/>
-[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/6_비밀지도.py)
+[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/6_비밀지도.py) (100.0 / 100.0)
 - 다트게임<br/>
-[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/7_다트게임.py)
+[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/7_다트게임.py) (100.0 / 100.0)
 
 ## 3차
 - 방금그곡<br/>

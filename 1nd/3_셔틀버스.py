@@ -68,7 +68,7 @@ def solution(n, t, m, timetable) :
 
             elif get_hour(crew_time) == get_hour(shuttle_time) :
                 if get_min(crew_time) <= get_min(shuttle_time) :
-                    last_crew_index +=1
+                    last_crew_index += 1
 
                 else :
                     break

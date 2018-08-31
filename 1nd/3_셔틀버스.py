@@ -42,6 +42,8 @@
 def solution(n, t, m, timetable) :
     answer = ''
 
+    import datetime
+
     return answer
 
 if __name__ == '__main__' :

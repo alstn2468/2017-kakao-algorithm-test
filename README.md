@@ -19,7 +19,7 @@
 - 비밀지도<br/>
 [[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/6_비밀지도.py) (100.0 / 100.0)
 - 다트게임<br/>
-[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/7_다트게임.py) (100.0 / 100.0) (000.0 / 100.0)
+[[코드]](https://github.com/alstn2468/2017_Kakao_Algorithm_Test/blob/master/1nd/7_다트게임.py) (100.0 / 100.0)
 
 ## 3차
 - 방금그곡<br/>

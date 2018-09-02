@@ -42,15 +42,18 @@
 def solution(n, t, m, timetable) :
     answer = ''
 
-    timetable.sort()
-
     return answer
 
 def get_last_shuttle_time(n, t) :
     from datetime import time
 
-    return time(hour = 9 + ((n - 1) * t // 60), minute = ((n - 1) * t % 60))
+    last_shuttle_time = time(hour = 9 + ((n - 1) * t // 60),
+                             minute = ((n - 1) * t % 60))
 
+    return last_shuttle_time.strftime('%H:%M')
+
+def available_crew_num(n, m) :
+    return n * m
 
 if __name__ == '__main__' :
     n = [1,

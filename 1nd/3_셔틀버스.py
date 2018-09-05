@@ -55,6 +55,25 @@ def get_last_shuttle_time(n, t) :
 def available_crew_num(n, m) :
     return n * m
 
+def compare_time(crew, last_shuttle_time) :
+    last_shuttle_hour = int(last_shuttle_time[:2])
+    last_shuttle_min = int(last_shuttle_time[3:])
+
+    if last_shuttle_hour < int(crew[:2]) :
+        return True
+
+    elif last_shuttle_time == int(crew[:2]) :
+        if last_shuttle_min < int(crew[3:]) :
+            return True
+
+    return False
+
+def timetable_sort(timetable, last_shuttle_time) :
+    f = lambda crew : not compare_time(crew, last_shuttle_time)
+    new_timetable = filter(f, timetable)
+
+    return sorted(new_timetable)
+
 if __name__ == '__main__' :
     n = [1,
          2,
@@ -79,9 +98,8 @@ if __name__ == '__main__' :
                  ['09:00', '09:00', '09:00', '09:00'],
                  ['00:01', '00:01', '00:01', '00:01', '00:01'],
                  ['23:59'],
-                 ['23:59','23:59', '23:59', '23:59', '23:59',
+                 ['23:59', '23:59', '23:59', '23:59', '23:59',
                   '23:59', '23:59', '23:59', '23:59', '23:59',
                   '23:59', '23:59', '23:59', '23:59', '23:59', '23:59']]
 
-    for i in range(len(n)) :
-        print(solution(n[i], t[i], m[i], timetable[i]))
+    print(timetable_sort(timetable[5], get_last_shuttle_time(n[5], t[5])))

@@ -40,9 +40,34 @@
 #                    23:59, 23:59]
 
 def solution(n, t, m, timetable) :
-    answer = ''
+    from datetime import datetime, timedelta
 
-    return answer
+    shuttle_time = ['09:00']
+    dt = timedelta(minutes = t)
+
+    for i in range(1, n) :
+        time = datetime.strptime('09:00', '%H:%M') + dt * i
+        shuttle_time.append(datetime.strftime(time, '%H:%M'))
+
+    sorted_timetable = timetable_sort(timetable,
+                                      get_last_shuttle_time(n, t))
+
+    available_crew_num = get_available_crew_num(n, m)
+
+    if len(sorted_timetable) < available_crew_num :
+        if len(sorted_timetable) == 0 :
+            return get_last_shuttle_time(n, t)
+
+        else :
+            pass
+
+    for i in range(len(timetable)) :
+        available_crew_num -= 1
+
+        del sorted_timetable[0]
+
+        if available_crew_num == 1 :
+            return con_time(sorted_timetable)
 
 def get_last_shuttle_time(n, t) :
     from datetime import time
@@ -52,7 +77,7 @@ def get_last_shuttle_time(n, t) :
 
     return last_shuttle_time.strftime('%H:%M')
 
-def available_crew_num(n, m) :
+def get_available_crew_num(n, m) :
     return n * m
 
 def compare_time(crew, last_shuttle_time) :
@@ -73,6 +98,15 @@ def timetable_sort(timetable, last_shuttle_time) :
     new_timetable = filter(f, timetable)
 
     return sorted(new_timetable)
+
+def con_time(timetable) :
+    from datetime import datetime, timedelta
+
+    if len(timetable) > 0 :
+        last_crew = datetime.strptime(timetable[0], '%H:%M')
+        con_time = last_crew - timedelta(minutes = 1)
+
+        return con_time.strftime('%H:%M')
 
 if __name__ == '__main__' :
     n = [1,
@@ -102,4 +136,5 @@ if __name__ == '__main__' :
                   '23:59', '23:59', '23:59', '23:59', '23:59',
                   '23:59', '23:59', '23:59', '23:59', '23:59', '23:59']]
 
-    print(timetable_sort(timetable[5], get_last_shuttle_time(n[5], t[5])))
+    for i in range(len(n)) :
+        print(solution(n[i], t[i], m[i], timetable[i]))

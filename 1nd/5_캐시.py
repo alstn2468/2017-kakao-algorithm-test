@@ -31,33 +31,35 @@
 # 2	        [Jeju, Pangyo, NewYork, newyork]	                                                        16
 # 0	        [Jeju, Pangyo, Seoul, NewYork, LA]	                                                        25
 
-def solution(cacheSize, cities) :
+
+def solution(cacheSize, cities):
     result, count, used = 0, 0, []
 
-    for index, city in enumerate(cities) :
-        if cacheSize == 0 :
+    for index, city in enumerate(cities):
+        if cacheSize == 0:
             result += 5
 
-        elif (len(used) < cacheSize) and (city.lower() not in used) :
+        elif (len(used) < cacheSize) and (city.lower() not in used):
             used.append(city.lower())
             result += 5
 
-        elif city.lower() not in used :
+        elif city.lower() not in used:
             del used[0]
             used.append(city.lower())
             result += 5
 
-        elif city.lower() in used :
+        elif city.lower() in used:
             used.remove(city.lower())
             used.append(city.lower())
             result += 1
 
     return result
 
-if __name__ == '__main__' :
+
+if __name__ == '__main__':
     cacheSize = [3, 3, 2, 5, 2, 0]
     cities = [["Jeju", "Pangyo", "Seoul",
-              "NewYork", "LA", "Jeju",
+               "NewYork", "LA", "Jeju",
                "Pangyo", "Seoul", "NewYork", "LA"],
 
               ["Jeju", "Pangyo", "Seoul",
@@ -80,5 +82,5 @@ if __name__ == '__main__' :
               ["Jeju", "Pangyo", "Seoul",
                "NewYork", "LA"]]
 
-    for i in range(len(cacheSize)) :
+    for i in range(len(cacheSize)):
         print(solution(cacheSize[i], cities[i]))

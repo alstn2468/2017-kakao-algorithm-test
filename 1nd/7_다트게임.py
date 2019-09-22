@@ -36,6 +36,7 @@
 # 6	      1T2D3D#	  -4	   13 + 22 + 32 * (-1)
 # 7	      1D2S3T*	  59	   12 + 21 * 2 + 33 * 2
 
+
 def solution(dartResult):
     import re
 
@@ -43,24 +44,25 @@ def solution(dartResult):
 
     opt = [1, 1, 1]
 
-    for i, s in enumerate(shot) :
+    for i, s in enumerate(shot):
 
-        if s[-1] == '#' :
+        if s[-1] == '#':
             opt[i] *= -1
             shot[i] = shot[i][:-1]
 
-        elif s[-1] == '*' :
+        elif s[-1] == '*':
             opt[i] *= 2
             shot[i] = shot[i][:-1]
 
-            if i :
+            if i:
                 opt[i - 1] *= 2
 
     point = [int(s[:-1]) ** '0SDT'.find(s[-1]) * o for s, o in zip(shot, opt)]
 
     return sum(point)
 
-if __name__ == '__main__' :
+
+if __name__ == '__main__':
     dataResult = ['1S2D*3T',
                   '1D2S#10S',
                   '1D2S0T',
@@ -69,5 +71,5 @@ if __name__ == '__main__' :
                   '1T2D3D#',
                   '1D2S3T*']
 
-    for i in range(len(dataResult)) :
+    for i in range(len(dataResult)):
         print(solution(dataResult[i]))
